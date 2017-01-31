@@ -425,7 +425,10 @@ hanzi .useMode ul li {
   margin-bottom: 0.3em; }
 
 home .header {
-  padding-bottom: 1em; }
+  padding-bottom: 1em;
+  border-left: 4px solid;
+  padding-left: 16px;
+  padding-top: 18px; }
   home .header h1 {
     display: inline-block; }
   home .header span {
@@ -451,23 +454,28 @@ home .content p {
   padding-left: 21px;
   padding-right: 21px; }
 
-home .content h3 a {
+home .content h3 {
   font-size: 1.3em;
   text-align: left;
   padding-bottom: 1em;
   padding-top: 1em;
-  color: dimgray;
-  text-decoration: none; }
-  home .content h3 a:before {
-    border-left: 6px solid black;
-    padding-left: 15px;
-    content: ''; }
-  home .content h3 a:hover {
-    color: black; }
+  border-left: 4px solid;
+  padding-left: 16px;
+  color: dimgray; }
+  home .content h3 a {
+    text-decoration: none; }
+    home .content h3 a:before {
+      border-left: 6px solid black;
+      padding-left: 15px;
+      content: ''; }
+    home .content h3 a:hover {
+      color: black; }
 
 home .thumbs li {
   width: 100%;
   padding-top: 4em; }
+  home .thumbs li img {
+    max-width: 95%; }
 
 /* Custom CSS
  * --------------------------------------- */
