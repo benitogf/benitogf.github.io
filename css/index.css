@@ -228,6 +228,15 @@ header {
     -o-transition: max-height 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transition: max-height 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 10; }
+  @media only screen and (max-width: 420px) {
+    header {
+      display: none; } }
+  @media only screen and (min-width: 421px) and (max-width: 739px) {
+    header {
+      display: none; } }
+  @media only screen and (min-width: 741px) and (max-width: 943px) {
+    header {
+      display: none; } }
 
 ::-webkit-scrollbar {
   width: 0.5em;
@@ -246,10 +255,12 @@ body {
 @keyframes loading {
   0% {
     transform: rotate(0deg); }
+  25% {
+    transform: rotate(80deg); }
   50% {
-    transform: rotate(180deg); }
+    transform: rotate(-80deg); }
   100% {
-    transform: rotate(360deg); } }
+    transform: rotate(0deg); } }
 
 #loader {
   position: absolute;
@@ -275,11 +286,11 @@ body {
 /* tags
  * --------------------------------------- */
 hanzi .curtain {
-  -webkit-transition: all 1s ease-in-out;
-  -moz-transition: all 1s ease-in-out;
-  -ms-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   position: fixed;
   z-index: 5;
   width: 100%;
@@ -295,7 +306,6 @@ hanzi .curtain section {
   display: flex;
   justify-content: center;
   width: 80%;
-  background: #363636 none repeat scroll 0% 0%;
   height: 95%;
   margin: 0px auto;
   position: relative; }
@@ -332,6 +342,7 @@ hanzi .curtain section .curtain_cont button {
   cursor: pointer; }
 
 hanzi .s_fi {
+  max-height: 100%;
   margin: 0px auto;
   max-width: 900px;
   color: #f0f0f0;
@@ -388,10 +399,10 @@ hanzi form.search input {
   width: 100%; }
 
 hanzi .symbol_char {
-  font-size: 3em;
+  font-size: 19em;
   display: flex;
   justify-content: center;
-  margin-bottom: 0.5em; }
+  margin-top: 0.13em; }
 
 hanzi .symbol_field {
   font-size: 0.8em;
@@ -426,7 +437,7 @@ hanzi .useMode ul li {
 
 home .header {
   padding-bottom: 1em;
-  border-left: 4px solid;
+  border-left: 7px solid;
   padding-left: 16px;
   padding-top: 18px; }
   home .header h1 {
@@ -459,7 +470,7 @@ home .content h3 {
   text-align: left;
   padding-bottom: 1em;
   padding-top: 1em;
-  border-left: 4px solid;
+  border-left: 5px solid;
   padding-left: 16px;
   color: dimgray; }
   home .content h3 a {
@@ -474,6 +485,8 @@ home .content h3 {
 home .thumbs li {
   width: 100%;
   padding-top: 4em; }
+  home .thumbs li img[src*=".gif"] {
+    margin-left: 20px; }
   home .thumbs li img {
     max-width: 95%; }
 
