@@ -39,18 +39,22 @@ table {
 #navToggle:checked ~ header nav {
   left: 0; }
 
-#navToggle:checked ~ header label.navToggle {
+#navToggle:checked ~ header:not(.back) label.navToggle {
   background: white;
   color: black;
   width: 112px; }
-  #navToggle:checked ~ header label.navToggle:after {
+  #navToggle:checked ~ header:not(.back) label.navToggle:after {
     content: '\2630'; }
 
 header {
   position: fixed;
   z-index: 1;
   font-size: 0.9em;
-  font-weight: 300; }
+  font-weight: 300;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  box-shadow: 0px 0.9px 0.6px rgba(221, 221, 221, 0.71); }
   header.navmenu {
     opacity: 0;
     background-color: white;
@@ -67,14 +71,15 @@ header {
     background-color: white;
     left: -112px;
     width: 95px;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out; }
+    box-shadow: -3.1px -20.1px 9px 20px rgba(221, 221, 221, 0.71);
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out; }
   header label.navToggle {
     position: relative;
-    line-height: 2.1em;
+    line-height: 3.1em;
     text-align: center;
     z-index: 1;
     font-size: 1.4em;
@@ -100,6 +105,15 @@ header {
       color: black; }
     header label.navToggle:after {
       content: '\269E'; }
+  header.back label.navToggle:after {
+    content: '\25B2'; }
+  header span.title {
+    float: right;
+    padding: 13px 14px 0 0;
+    text-align: right; }
+    header span.title h1 {
+      font-size: 1.2em;
+      font-weight: 600; }
   header ul li,
   header ul li a,
   header ul li label {
@@ -119,7 +133,7 @@ header {
     position: relative;
     text-decoration: none;
     cursor: pointer;
-    line-height: 3em; }
+    line-height: 3.5em; }
     header ul li a:hover,
     header ul li label:hover,
     header .dropdown li a:hover {
@@ -136,7 +150,8 @@ header {
     padding-left: 1.2em; }
   header .dropdown li a {
     padding-left: 0;
-    text-align: center; }
+    text-align: right;
+    padding-right: 1.2em; }
   header .multi input:checked ~ .dropdown li {
     max-height: 100%; }
   header .multi input:checked ~ .dropdown {
@@ -214,7 +229,7 @@ header {
     -o-transition: height 0.2s ease-in-out;
     transition: height 0.2s ease-in-out; }
   header .dropdown li a {
-    height: 3em;
+    height: 3.5em;
     cursor: pointer; }
   header .dropdown li a {
     background: white;
@@ -229,13 +244,13 @@ header {
     transition: max-height 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 10; }
   @media only screen and (max-width: 420px) {
-    header {
+    header:not(.back) {
       display: none; } }
   @media only screen and (min-width: 421px) and (max-width: 739px) {
-    header {
+    header:not(.back) {
       display: none; } }
   @media only screen and (min-width: 741px) and (max-width: 943px) {
-    header {
+    header:not(.back) {
       display: none; } }
 
 ::-webkit-scrollbar {
@@ -342,6 +357,7 @@ hanzi .curtain section .curtain_cont button {
   cursor: pointer; }
 
 hanzi .s_fi {
+  padding-top: 76px;
   max-height: 100%;
   margin: 0px auto;
   max-width: 900px;
@@ -449,7 +465,7 @@ home a {
   color: black; }
 
 home .content {
-  padding: 50px 0;
+  padding: 112px 0;
   margin: 0 auto;
   max-width: 900px; }
 
@@ -459,6 +475,7 @@ home .content h1 {
 
 home .content p {
   font-size: 0.96em;
+  line-height: 25px;
   text-align: justify;
   padding-bottom: 1em;
   padding-top: 0.5em;
@@ -466,13 +483,14 @@ home .content p {
   padding-right: 21px; }
 
 home .content h3 {
-  font-size: 1.3em;
+  font-size: 1.4em;
   text-align: left;
   padding-bottom: 1em;
   padding-top: 1em;
   border-left: 5px solid;
   padding-left: 16px;
-  color: dimgray; }
+  color: dimgray;
+  font-weight: 600; }
   home .content h3 a {
     text-decoration: none; }
     home .content h3 a:before {
@@ -484,11 +502,15 @@ home .content h3 {
 
 home .thumbs li {
   width: 100%;
-  padding-top: 4em; }
-  home .thumbs li img[src*=".gif"] {
-    margin-left: 20px; }
+  padding-top: 2.2em; }
   home .thumbs li img {
     max-width: 95%; }
+  home .thumbs li img[src*=".gif"] {
+    margin-left: 21px;
+    max-width: 394px; }
+    @media only screen and (max-width: 420px) {
+      home .thumbs li img[src*=".gif"] {
+        max-width: 90%; } }
 
 /* Custom CSS
  * --------------------------------------- */
@@ -513,15 +535,9 @@ canvas {
 
 #content {
   opacity: 0;
-  z-index: 1; }
-
-.content_editable {
-  font-size: 1em;
-  background-color: #1e1e1e;
-  padding: 1em;
-  margin-top: 0.5em;
-  display: inherit; }
-
-.content_editable img {
-  width: 100%;
-  height: auto; }
+  z-index: 1;
+  -webkit-transition: all 0.7s ease-in-out;
+  -moz-transition: all 0.7s ease-in-out;
+  -ms-transition: all 0.7s ease-in-out;
+  -o-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out; }
